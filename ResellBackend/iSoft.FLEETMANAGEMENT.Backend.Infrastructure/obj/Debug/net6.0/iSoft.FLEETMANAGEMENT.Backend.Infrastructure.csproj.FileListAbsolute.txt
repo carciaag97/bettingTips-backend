@@ -1,0 +1,14 @@
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\bin\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.deps.json
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\bin\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.dll
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\bin\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.pdb
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.AssemblyInfo.cs
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.dll
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\refint\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.dll
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.pdb
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ref\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.dll
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\bin\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.runtimeconfig.json
+C:\Users\CRV\Desktop\FleetManagement\iSoft.FleetManagement.Backend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\iSoft.FLEETMANAGEMENT.Backend.Infrastructure.genruntimeconfig.cache

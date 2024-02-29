@@ -1,0 +1,14 @@
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\bin\Debug\net6.0\ResellBackendInfrastructure.deps.json
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\bin\Debug\net6.0\ResellBackendInfrastructure.runtimeconfig.json
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\bin\Debug\net6.0\ResellBackendInfrastructure.dll
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\bin\Debug\net6.0\ResellBackendInfrastructure.pdb
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ResellBackendInfrastructure.csproj.AssemblyReference.cache
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ResellBackendInfrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ResellBackendInfrastructure.AssemblyInfoInputs.cache
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ResellBackendInfrastructure.AssemblyInfo.cs
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ResellBackendInfrastructure.csproj.CoreCompileInputs.cache
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ResellBackendInfrastructure.dll
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\refint\ResellBackendInfrastructure.dll
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ResellBackendInfrastructure.pdb
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ResellBackendInfrastructure.genruntimeconfig.cache
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\obj\Debug\net6.0\ref\ResellBackendInfrastructure.dll
