@@ -16,7 +16,7 @@ namespace ResellBackendCore.Database.Entities
         public string Condition { get; set; }
         public string Size { get; set; }
         public string Color { get; set; }
-        
+        public string Brand { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
         public int CategoryId { get; set; }
