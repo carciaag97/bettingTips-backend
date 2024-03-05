@@ -45,60 +45,56 @@ namespace ResellBackendCore.Migrations
                     b.ToTable("Categories", (string)null);
                 });
 
-            modelBuilder.Entity("ResellBackendCore.Database.Entities.Photo", b =>
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Match", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AwayTeamId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("HomeTeamId")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<string>("PhotoPath")
+                    b.Property<string>("League")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PostId")
-                        .HasColumnType("int");
+                    b.Property<double>("Odd")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("Timestamp")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Tip")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("PostId");
+                    b.HasIndex("AwayTeamId");
 
-                    b.ToTable("Photos", (string)null);
+                    b.HasIndex("HomeTeamId");
+
+                    b.ToTable("Matches", (string)null);
                 });
 
-            modelBuilder.Entity("ResellBackendCore.Database.Entities.Post", b =>
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.News", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Brand")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Color")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Condition")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Currency")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -107,10 +103,14 @@ namespace ResellBackendCore.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<string>("LinkPhoto")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Size")
+                    b.Property<int>("NewsTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("OtherLink")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -126,11 +126,143 @@ namespace ResellBackendCore.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
+                    b.ToTable("News", (string)null);
+                });
+
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Statistics", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("ResultInCash")
+                        .HasColumnType("float");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("TotalTickets")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId")
+                        .IsUnique();
+
+                    b.ToTable("Statistics", (string)null);
+                });
+
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Team", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Base64Photo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teams", (string)null);
+                });
+
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Ticket", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<double>("ReturnInCash")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Stake")
+                        .HasColumnType("float");
+
+                    b.Property<int>("StateTypeId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalOdd")
+                        .HasColumnType("float");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
                     b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("Posts", (string)null);
+                    b.ToTable("Tickets", (string)null);
+                });
+
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.TicketMatch", b =>
+                {
+                    b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MatchId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("TicketId", "MatchId");
+
+                    b.HasIndex("MatchId");
+
+                    b.ToTable("TicketMatches", (string)null);
                 });
 
             modelBuilder.Entity("ResellBackendCore.Database.Entities.User", b =>
@@ -141,11 +273,11 @@ namespace ResellBackendCore.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ContactLink")
+                    b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("FullName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -154,9 +286,6 @@ namespace ResellBackendCore.Migrations
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Role")
@@ -171,27 +300,57 @@ namespace ResellBackendCore.Migrations
                     b.ToTable("Users", (string)null);
                 });
 
-            modelBuilder.Entity("ResellBackendCore.Database.Entities.Photo", b =>
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Match", b =>
                 {
-                    b.HasOne("ResellBackendCore.Database.Entities.Post", "Post")
-                        .WithMany("photos")
-                        .HasForeignKey("PostId")
+                    b.HasOne("ResellBackendCore.Database.Entities.Team", "AwayTeam")
+                        .WithMany()
+                        .HasForeignKey("AwayTeamId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("ResellBackendCore.Database.Entities.Team", "HomeTeam")
+                        .WithMany()
+                        .HasForeignKey("HomeTeamId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("AwayTeam");
+
+                    b.Navigation("HomeTeam");
+                });
+
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.News", b =>
+                {
+                    b.HasOne("ResellBackendCore.Database.Entities.User", "User")
+                        .WithMany("News")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Post");
+                    b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ResellBackendCore.Database.Entities.Post", b =>
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Statistics", b =>
                 {
                     b.HasOne("ResellBackendCore.Database.Entities.Category", "Category")
-                        .WithMany("Posts")
+                        .WithOne("Statistics")
+                        .HasForeignKey("ResellBackendCore.Database.Entities.Statistics", "CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Ticket", b =>
+                {
+                    b.HasOne("ResellBackendCore.Database.Entities.Category", "Category")
+                        .WithMany("Tickets")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ResellBackendCore.Database.Entities.User", "User")
-                        .WithMany("Posts")
+                        .WithMany("Tickets")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -201,19 +360,48 @@ namespace ResellBackendCore.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ResellBackendCore.Database.Entities.Category", b =>
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.TicketMatch", b =>
                 {
-                    b.Navigation("Posts");
+                    b.HasOne("ResellBackendCore.Database.Entities.Match", "Match")
+                        .WithMany("Tickets")
+                        .HasForeignKey("MatchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ResellBackendCore.Database.Entities.Ticket", "Ticket")
+                        .WithMany("Matches")
+                        .HasForeignKey("TicketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Match");
+
+                    b.Navigation("Ticket");
                 });
 
-            modelBuilder.Entity("ResellBackendCore.Database.Entities.Post", b =>
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Category", b =>
                 {
-                    b.Navigation("photos");
+                    b.Navigation("Statistics")
+                        .IsRequired();
+
+                    b.Navigation("Tickets");
+                });
+
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Match", b =>
+                {
+                    b.Navigation("Tickets");
+                });
+
+            modelBuilder.Entity("ResellBackendCore.Database.Entities.Ticket", b =>
+                {
+                    b.Navigation("Matches");
                 });
 
             modelBuilder.Entity("ResellBackendCore.Database.Entities.User", b =>
                 {
-                    b.Navigation("Posts");
+                    b.Navigation("News");
+
+                    b.Navigation("Tickets");
                 });
 #pragma warning restore 612, 618
         }

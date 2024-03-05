@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 
 namespace ResellBackendCore.Database.Entities
 {
-    public class Photo:BaseEntity
+    public class Team:BaseEntity
     {
-        public string PhotoPath { get; set; }
-        public int PostId { get; set; }
-        public Post Post { get; set; }
+        public string Name { get; set; }
+        public string Base64Photo { get; set; }
     }
 }

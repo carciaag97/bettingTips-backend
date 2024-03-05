@@ -1,4 +1,10 @@
 ﻿using AutoMapper;
+using ResellBackendCore.Database.Dtos.CategoryDto;
+using ResellBackendCore.Database.Dtos.MatchDto;
+using ResellBackendCore.Database.Dtos.TicketDto;
+using ResellBackendCore.Database.Dtos.TicketMatchDto;
+using ResellBackendCore.Database.Dtos.UserDto;
+using ResellBackendCore.Database.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +15,60 @@ namespace iSoft.FLEETMANAGEMENT.Backend.Core.Utils
 {
     public class AutoMapperProfile : Profile
     {
+       
         public AutoMapperProfile()
         {
             
 
+
+            CreateMap<AddUserDto, User>().ReverseMap();
+            CreateMap<User, GetUserDto>().ReverseMap();
+            CreateMap<AddUserDto, GetUserDto>().ReverseMap();
+
+            CreateMap<AddCategoryDto, Category>().ReverseMap();
+            CreateMap<Category, GetCategoryDto>().ReverseMap();
+            CreateMap<AddCategoryDto, GetCategoryDto>().ReverseMap();
+
+            CreateMap<Team, GetCategoryDto>().ReverseMap();
+
+
+            CreateMap<Ticket, GetTicketDto>();
+            CreateMap<Ticket, GetTicketDto>()
+            .ForMember(dest => dest.Matches, opt => opt.MapFrom(src => src.Matches.Select(tm => new ListTicketMatchDto
+            {
+                MatchId = tm.MatchId,
+                Match = new GetMatchDto // Nu folosim _mapper aici
+                {
+                    // Aici efectuăm maparea directă
+                    Id = tm.Match.Id,
+                    HomeTeamId = tm.Match.HomeTeamId,
+                    AwayTeamId = tm.Match.AwayTeamId,
+                    League = tm.Match.League,
+                    Tip = tm.Match.Tip,
+                    Odd = tm.Match.Odd,
+                    StartTime = tm.Match.StartTime
+                }
+            }).ToList()));
+            CreateMap<AddTicketDto, Ticket>().ReverseMap();
+            CreateMap<AddTicketDto, GetTicketDto>().ReverseMap();
+
+
+            CreateMap<Match, GetMatchDto>().ReverseMap();
+            CreateMap<AddMatchDto, Match>().ReverseMap();
+            CreateMap<AddMatchDto, GetMatchDto>().ReverseMap();
+
+            CreateMap<TicketMatch, GetTicketMatchDto>().ReverseMap();
+            CreateMap<AddTicketMatchDto, TicketMatch>().ReverseMap();
+            CreateMap<AddTicketMatchDto, GetTicketMatchDto>().ReverseMap();
+
+            CreateMap<Ticket, GetTicketDto>()
+    .ForMember(dest => dest.Matches, opt => opt.MapFrom(src => src.Matches))
+    .ForMember(dest => dest.UserId, opt => opt.Ignore());
+
+            CreateMap<Ticket, GetTicketDto>()
+                .ForMember(dest => dest.Matches, opt => opt.MapFrom(src => src.Matches.Select(tm => tm.Match)));
+            CreateMap<TicketMatch, ListTicketMatchDto>();
+            
         }
     }
 }

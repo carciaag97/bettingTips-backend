@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using ResellBackendCore.Repositories;
+using ResellBackendCore.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,13 +30,29 @@ namespace iSoft.FLEETMANAGEMENT.Backend.Core.Extensions
 
         public static void AddRepositories(this IServiceCollection services)
         {
-            
+            services.AddScoped<CategoryRepository>();
+            services.AddScoped<MatchRepository>();
+            services.AddScoped<NewsRepository>();
+            services.AddScoped<StatisticsRepository>();
+            services.AddScoped<TeamRepository>();
+            services.AddScoped<TicketRepository>();
+            services.AddScoped<UserRepository>();
+            services.AddScoped<TicketMatchRepository>();
         }
 
         public static void AddServices(this IServiceCollection services)
         {
-            
-        
+            services.AddScoped<EfUnitOfWork>();
+            services.AddScoped<AuthTokenHandler>();
+            services.AddScoped<CategoryService>();
+            services.AddScoped<MatchService>();
+            services.AddScoped<NewsService>();
+            services.AddScoped<StatisticsService>();
+            services.AddScoped<TeamService>();
+            services.AddScoped<TicketService>();
+            services.AddScoped<UserService>();
+            services.AddScoped<TicketMatchService>();
+
         }
 
         public static void ConfigureSwagger(this IServiceCollection services)

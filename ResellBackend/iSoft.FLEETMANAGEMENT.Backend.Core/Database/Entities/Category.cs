@@ -10,6 +10,7 @@ namespace ResellBackendCore.Database.Entities
     public class Category:BaseEntity
     {
         public string Title { get; set; }
-        public ICollection<Post> Posts { get; set; }
+        public ICollection<Ticket> Tickets { get; set; }
+        public Statistics Statistics { get; set; }
     }
 }

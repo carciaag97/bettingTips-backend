@@ -5,25 +5,25 @@
 namespace ResellBackendCore.Migrations
 {
     /// <inheritdoc />
-    public partial class SecondMigration : Migration
+    public partial class TicketModifications : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<string>(
-                name: "Brand",
-                table: "Posts",
-                type: "nvarchar(max)",
+            migrationBuilder.AddColumn<bool>(
+                name: "isActive",
+                table: "Tickets",
+                type: "bit",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: false);
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Brand",
-                table: "Posts");
+                name: "isActive",
+                table: "Tickets");
         }
     }
 }

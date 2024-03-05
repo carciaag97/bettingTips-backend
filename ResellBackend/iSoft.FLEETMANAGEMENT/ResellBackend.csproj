@@ -35,8 +35,4 @@
     <ProjectReference Include="..\iSoft.FLEETMANAGEMENT.Backend.Infrastructure\ResellBackendInfrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
 </Project>

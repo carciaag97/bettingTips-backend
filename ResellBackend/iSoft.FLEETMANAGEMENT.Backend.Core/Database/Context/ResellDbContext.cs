@@ -29,8 +29,13 @@ namespace iSoft.FLEETMANAGEMENT.Backend.Core.Database.Context
 
         public DbSet<User> Users { get; set; }
         public DbSet<Category> Categories { get; set; }
-        public DbSet<Photo> Photos { get; set; }
-        public DbSet<Post> Posts { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Match> Matches { get; set; }
+        public DbSet<Statistics> Statistics { get; set; }
+        public DbSet<News> News { get; set; }
+        public DbSet<TicketMatch> TicketMatches { get; set; }
+
        
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -38,33 +43,73 @@ namespace iSoft.FLEETMANAGEMENT.Backend.Core.Database.Context
 
             modelBuilder.Entity<User>().ToTable("Users").HasKey(u => u.Id);
             modelBuilder.Entity<Category>().ToTable("Categories").HasKey(c => c.Id);
-            modelBuilder.Entity<Photo>().ToTable("Photos").HasKey(p => p.Id);
-            modelBuilder.Entity<Post>().ToTable("Posts").HasKey(ps => ps.Id);
+            modelBuilder.Entity<Statistics>().ToTable("Statistics").HasKey(s => s.Id);
+            modelBuilder.Entity<Ticket>().ToTable("Tickets").HasKey(tc => tc.Id);
+            modelBuilder.Entity<Team>().ToTable("Teams").HasKey(t => t.Id);
+            modelBuilder.Entity<News>().ToTable("News").HasKey(n => n.Id);
+            modelBuilder.Entity<Match>().ToTable("Matches").HasKey(m => m.Id);
+            modelBuilder.Entity<TicketMatch>().ToTable("TicketMatches").HasKey(tm => new { tm.TicketId, tm.MatchId });
+
 
             modelBuilder.Entity<User>()
-                .HasMany(u => u.Posts)
-                .WithOne(post => post.User)
-                .HasForeignKey(post => post.UserId);
+            .HasMany(u => u.Tickets)
+            .WithOne(ticket => ticket.User)
+            .HasForeignKey(ticket => ticket.UserId);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.News)
+                .WithOne(news => news.User)
+                .HasForeignKey(news => news.UserId);
 
             modelBuilder.Entity<Category>()
-              .HasMany(u => u.Posts)
-              .WithOne(post => post.Category)
-              .HasForeignKey(post => post.CategoryId);
+                .HasMany(u => u.Tickets)
+                .WithOne(ticket => ticket.Category)
+                .HasForeignKey(ticket => ticket.CategoryId);
+            modelBuilder.Entity<Category>()
+                .HasOne(s => s.Statistics)
+                .WithOne(stat => stat.Category)
+                .HasForeignKey<Statistics>(stat => stat.CategoryId);
 
-            modelBuilder.Entity<Post>()
-            .HasOne(p => p.User)
-            .WithMany(u => u.Posts)
-            .HasForeignKey(p => p.UserId);
+            modelBuilder.Entity<Match>()
+                .HasOne(m => m.HomeTeam)
+                .WithMany()
+                .HasForeignKey(m => m.HomeTeamId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Match>()
+                .HasOne(m => m.AwayTeam)
+                .WithMany()
+                .HasForeignKey(m => m.AwayTeamId)
+                .OnDelete(DeleteBehavior.Restrict);
 
-            modelBuilder.Entity<Post>()
-                .HasOne(p => p.Category)
-                .WithMany(c => c.Posts)
-                .HasForeignKey(p => p.CategoryId);
+            modelBuilder.Entity<News>()
+                .HasOne(news => news.User)
+                .WithMany(user => user.News)
+                .HasForeignKey(news => news.UserId);
 
-            modelBuilder.Entity<Photo>()
-                .HasOne(photo => photo.Post)
-                .WithMany(post => post.photos)
-                .HasForeignKey(photo => photo.PostId);
+            modelBuilder.Entity<Ticket>()
+                .HasOne(t => t.User)
+                .WithMany(u => u.Tickets)
+                .HasForeignKey(t => t.UserId);
+
+            modelBuilder.Entity<Ticket>()
+                .HasOne(t => t.Category)
+                .WithMany(c => c.Tickets)
+                .HasForeignKey(t => t.CategoryId);
+
+            modelBuilder.Entity<Ticket>()
+                .HasMany(t => t.Matches)
+                .WithOne(m => m.Ticket)
+                .HasForeignKey(m => m.TicketId);
+
+
+            modelBuilder.Entity<TicketMatch>()
+            .HasOne(tm => tm.Ticket)
+            .WithMany(t => t.Matches)
+            .HasForeignKey(tm => tm.TicketId);
+
+            modelBuilder.Entity<TicketMatch>()
+                .HasOne(tm => tm.Match)
+                .WithMany(m => m.Tickets)
+                .HasForeignKey(tm => tm.MatchId);
 
             new DbInitializer(modelBuilder).Seed();   
         }

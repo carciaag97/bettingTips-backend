@@ -12,8 +12,12 @@ var builder = WebApplication.CreateBuilder(args);
 AppConfig.Init(builder.Configuration);
 
 builder.Services.AddControllers()
-                .AddJsonOptions(options =>
-                options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    });
+
 
 
 // Add services to the container.
