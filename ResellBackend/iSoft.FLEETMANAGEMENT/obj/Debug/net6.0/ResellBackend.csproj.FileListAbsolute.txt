@@ -117,3 +117,5 @@ C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT\obj\Debu
 C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT\obj\Debug\net6.0\ResellBackend.pdb
 C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT\obj\Debug\net6.0\ResellBackend.genruntimeconfig.cache
 C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT\obj\Debug\net6.0\ref\ResellBackend.dll
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT\bin\Debug\net6.0\Autofac.dll
+C:\Users\CRV\Desktop\resell-backend\ResellBackend\iSoft.FLEETMANAGEMENT\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll

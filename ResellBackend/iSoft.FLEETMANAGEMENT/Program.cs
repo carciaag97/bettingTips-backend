@@ -5,7 +5,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.SignalR;
 using iSoft.FLEETMANAGEMENT.Backend.Core.Utils;
 using iSoft.FLEETMANAGEMENT.Backend.Core.Utils.Cache;
-
+using ResellBackendCore.Utils;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,6 +44,7 @@ builder.Services.ConfigureAuthorization();
 builder.Services.ConfigureSwagger();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+builder.Services.AddHostedService<JobService>();
 
 
 var app = builder.Build();

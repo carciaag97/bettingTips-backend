@@ -1,4 +1,5 @@
-﻿using iSoft.FLEETMANAGEMENT.Backend.Core.Database.Context;
+﻿using Autofac.Core;
+using iSoft.FLEETMANAGEMENT.Backend.Core.Database.Context;
 using iSoft.FLEETMANAGEMENT.Backend.Core.Handlers;
 using iSoft.FLEETMANAGEMENT.Backend.Core.UnitOfWork;
 using iSoft.FLEETMANAGEMENT.Backend.Infrastructure.Config;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ResellBackendCore.Repositories;
@@ -105,6 +107,8 @@ namespace iSoft.FLEETMANAGEMENT.Backend.Core.Extensions
                    };
                });
         }
+
+    
 
     }
 }

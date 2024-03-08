@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ResellBackendCore.Database.Dtos.CategoryDto;
 using ResellBackendCore.Database.Dtos.MatchDto;
+using ResellBackendCore.Database.Dtos.StatisticsDto;
 using ResellBackendCore.Database.Dtos.TicketDto;
 using ResellBackendCore.Database.Dtos.TicketMatchDto;
 using ResellBackendCore.Database.Dtos.UserDto;
@@ -37,9 +38,8 @@ namespace iSoft.FLEETMANAGEMENT.Backend.Core.Utils
             .ForMember(dest => dest.Matches, opt => opt.MapFrom(src => src.Matches.Select(tm => new ListTicketMatchDto
             {
                 MatchId = tm.MatchId,
-                Match = new GetMatchDto // Nu folosim _mapper aici
+                Match = new GetMatchDto
                 {
-                    // Aici efectuăm maparea directă
                     Id = tm.Match.Id,
                     HomeTeamId = tm.Match.HomeTeamId,
                     AwayTeamId = tm.Match.AwayTeamId,
@@ -68,7 +68,33 @@ namespace iSoft.FLEETMANAGEMENT.Backend.Core.Utils
             CreateMap<Ticket, GetTicketDto>()
                 .ForMember(dest => dest.Matches, opt => opt.MapFrom(src => src.Matches.Select(tm => tm.Match)));
             CreateMap<TicketMatch, ListTicketMatchDto>();
-            
+
+            CreateMap<AddStatisticsDto, Statistics>().ReverseMap();
+            CreateMap<Statistics, GetStatisticsDto>()
+                 .ForMember(dest => dest.CategoryDto, opt => opt.MapFrom(src => src.Category));
+            CreateMap<AddStatisticsDto, GetStatisticsDto>().ReverseMap();
+            CreateMap<Statistics, GetCategoryDtoWithTickets>();
+            CreateMap<AddStatisticsDto, GetCategoryDtoWithTickets>();
+
+
+       
+
+            CreateMap<Ticket, GetTicketDto>();
+            CreateMap<ListTicketMatchDto, TicketMatch>();
+
+           
+            CreateMap<AddStatisticsDto, Statistics>();
+            CreateMap<AddTicketDto, Ticket>();
+            CreateMap<AddTicketMatchDto, TicketMatch>();
+
+
+            CreateMap<Ticket, GetTicketDto>();
+            CreateMap<Category, GetCategoryDtoWithTickets>()
+                .ForMember(dest => dest.Tickets, opt => opt.MapFrom(src => src.Tickets));
+            CreateMap<Statistics, GetStatisticsDto>()
+    .ForMember(dest => dest.CategoryDto, opt => opt.MapFrom(src => src.Category));
+   
+
         }
     }
 }

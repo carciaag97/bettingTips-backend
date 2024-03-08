@@ -57,5 +57,11 @@ namespace iSoft.FLEETMANAGEMENT.Backend.Infrastructure.Base
         {
             return await _context.Set<T>().Where(expression).ToListAsync();
         }
+
+        public void Update(T entity)
+        {
+            _context.Set<T>().Attach(entity);
+            _context.Entry(entity).State = EntityState.Modified;
+        }
     }
 }

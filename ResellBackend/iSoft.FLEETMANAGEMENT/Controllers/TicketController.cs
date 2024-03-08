@@ -18,7 +18,7 @@ namespace ResellBackend.Controllers
         }
 
         [HttpPost("create-ticket")]
-        [Authorize(Roles ="Admin")]
+        [AllowAnonymous]
         public async Task<ActionResult> CreateTicket([FromBody] AddTicketDto ticketDto)
         {
             try
@@ -40,6 +40,20 @@ namespace ResellBackend.Controllers
                 var result = await ticketService.GetTicketByIdAsync(ticketId);
                 return Ok(result);
 
+            }catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        [HttpPut("update-ticket-statetype")]
+        [AllowAnonymous]
+        public async Task<ActionResult> UpdateTicketStateTypeById([FromBody] UpdateTicketDto updateTicket)
+        {
+            try
+            {
+                var result = await ticketService.UpdateTicketStateId(updateTicket);
+                return Ok(result);
             }catch(Exception ex)
             {
                 throw new Exception(ex.Message);

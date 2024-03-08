@@ -1,18 +1,17 @@
-﻿using iSoft.FLEETMANAGEMENT.Backend.Infrastructure.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResellBackendCore.Database.Entities
+namespace ResellBackendCore.Database.Dtos.StatisticsDto
 {
-    public class Statistics: BaseEntity
+    public class GetStatisticsDtoWithoutCategory
     {
+        public int Id { get; set; }
         public string Title { get; set; }
         public int TotalTickets { get; set; }
         public double ResultInCash { get; set; }
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
     }
 }

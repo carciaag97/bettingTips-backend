@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "wtu9EuG7bxYM7pp8xCDzx+IGkCw10eQ3k6O+fzZ9wSqhy29kODpJQFLL53jZ/p6DPD1/pSa/NpN1PJY81wUMyw==",
+  "dgSpecHash": "sNcGbGOQwZlfCh0G22BnoIuq+ougXYUUr4ryQEkDvbfZONLEaHnRzG4N5M7WylCfQT7YMAPsMLxrynHfzl/Pog==",
   "success": true,
   "projectFilePath": "C:\\Users\\CRV\\Desktop\\resell-backend\\ResellBackend\\iSoft.FLEETMANAGEMENT.Backend.Core\\ResellBackendCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\CRV\\.nuget\\packages\\autofac\\8.0.0\\autofac.8.0.0.nupkg.sha512",
     "C:\\Users\\CRV\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\CRV\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\CRV\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
@@ -81,7 +82,7 @@
     "C:\\Users\\CRV\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\CRV\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\CRV\\.nuget\\packages\\system.configuration.configurationmanager\\7.0.0\\system.configuration.configurationmanager.7.0.0.nupkg.sha512",
-    "C:\\Users\\CRV\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.0\\system.diagnostics.diagnosticsource.5.0.0.nupkg.sha512",
+    "C:\\Users\\CRV\\.nuget\\packages\\system.diagnostics.diagnosticsource\\7.0.2\\system.diagnostics.diagnosticsource.7.0.2.nupkg.sha512",
     "C:\\Users\\CRV\\.nuget\\packages\\system.drawing.common\\7.0.0\\system.drawing.common.7.0.0.nupkg.sha512",
     "C:\\Users\\CRV\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
     "C:\\Users\\CRV\\.nuget\\packages\\system.globalization\\4.3.0\\system.globalization.4.3.0.nupkg.sha512",

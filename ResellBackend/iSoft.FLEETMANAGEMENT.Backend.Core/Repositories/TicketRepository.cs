@@ -43,7 +43,17 @@ namespace ResellBackendCore.Repositories
             return ticket;
         }
 
+        public async Task<Ticket> UpdateTicketById(int ticketId)
+        {
+            var ticket = await _resellDbContext.Tickets
+                .FirstOrDefaultAsync(t => t.Id == ticketId);
 
+            return ticket;
+        }
 
+        public async Task<List<Ticket>> GetTicketsAsync()
+        {
+            return await _resellDbContext.Tickets.ToListAsync();
+        }
     }
 }

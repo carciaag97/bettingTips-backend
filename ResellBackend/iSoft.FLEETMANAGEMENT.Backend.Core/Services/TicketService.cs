@@ -42,7 +42,6 @@ namespace ResellBackendCore.Services
 
             var ticketDto = new GetTicketDto
             {
-                // Maparea directă a proprietăților fără a utiliza _mapper
                 Title = ticket.Title,
                 Description = ticket.Description,
                 TotalOdd = ticket.TotalOdd,
@@ -52,7 +51,6 @@ namespace ResellBackendCore.Services
                 isActive = ticket.isActive,
                 UserId = ticket.UserId,
                 CategoryId = ticket.CategoryId,
-                // Maparea listei Matches utilizând o expresie lambda
                 Matches = ticket.Matches.Select(tm => new ListTicketMatchDto
                 {
                     MatchId = tm.MatchId,
@@ -71,5 +69,42 @@ namespace ResellBackendCore.Services
 
             return ticketDto;
         }
+
+
+        public async Task<GetTicketDto> UpdateTicketStateId(UpdateTicketDto updateTicketDto)
+        {
+            var ticket = await efUnitOfWork._ticketRepository.UpdateTicketById(updateTicketDto.Id);
+
+            ticket.StateTypeId = updateTicketDto.StateTypeId != null ? updateTicketDto.StateTypeId : ticket.StateTypeId;
+
+            if (updateTicketDto.StateTypeId == 1)
+            {
+                ticket.ReturnInCash = ticket.ReturnInCash - ticket.Stake;
+            }
+            else if (updateTicketDto.StateTypeId == 3)
+            {
+                ticket.ReturnInCash = -ticket.Stake;
+            }
+
+            await efUnitOfWork.SaveAsync();
+
+            var getTicketDto = new GetTicketDto
+            {
+                Title = ticket.Title,
+                Description = ticket.Description,
+                TotalOdd = ticket.TotalOdd,
+                StateTypeId = ticket.StateTypeId,
+                ReturnInCash = ticket.ReturnInCash,
+                Stake = ticket.Stake,
+                UserId = ticket.UserId,
+                CategoryId = ticket.CategoryId,
+               
+            };
+
+            return getTicketDto;
+        }
+
+
+
     }
 }
