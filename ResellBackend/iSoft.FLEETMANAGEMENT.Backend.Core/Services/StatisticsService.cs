@@ -47,7 +47,7 @@ namespace ResellBackendCore.Services
                 CategoryDto = _mapper.Map<GetCategoryDtoWithTickets>(statistics.Category)
             };
 
-            // Adăugați aici maparea pentru Tickets
+       
             statisticsDto.CategoryDto.Tickets = statistics.Category.Tickets
                 .Select(ticket => _mapper.Map<GetTicketDto>(ticket)).ToList();
 
