@@ -1,4 +1,4 @@
-# resell-backend
+# bettingTips-backend
 This is the backend for a Soccer Betting Blog 
 
 You cand add Matches, you can combine matches to tickets and track the result of the betted tickets.
